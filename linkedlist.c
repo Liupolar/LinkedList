@@ -3,10 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-int createNode(Node** top,int type.void num);
+int createNode(Node** top,int type,void num);
 int appendNode(Node** top,int type,void date);
 int Nodelength(Node* top);
-int showNode(Node* top);
+int showNode(Node* top,int type);
+
 int createNode(Node** top,int type,void num){
   if((*top)==NULL){
     (*top)=(Node*)malloc(sizeof(Node));
@@ -47,5 +48,18 @@ int Nodelength(Node* top){
   return a;
 }
 int showNode(Node* top){
-  
+  if(top!=NULL){
+     if(type==0){
+       printf("%d",top->num);
+     }else if(type==1){
+       printf("%.2f",top->num);
+     }else if(type==2){
+       printf("%s",top->data);
+    }
+    top=top->next;
+    while(top!=NULL){
+      printf(" ");
+    }
+    
+  }
 }
