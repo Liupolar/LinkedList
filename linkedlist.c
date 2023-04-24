@@ -3,15 +3,49 @@
 #include <stdlib.h>
 #include <string.h>
 
-int createNode(Node** top,void num);
-int appendNode(Node** top,void date);
+int createNode(Node** top,int type.void num);
+int appendNode(Node** top,int type,void date);
 int Nodelength(Node* top);
-
-int createNode(Node** top,int num){
+int showNode(Node* top);
+int createNode(Node** top,int type,void num){
   if((*top)==NULL){
     (*top)=(Node*)malloc(sizeof(Node));
-    if()
+    if(type==0){
+      (*top)->num=num;
+    }else{
+      strcpy((*top)->data),num);
+    }
+    (*top)->next=NULL;
     return 1;
   }
   return 0
+}
+int appendNode(Node** top,int type,void data){
+  if((*top)!=NULL){
+    Node* tmp=(*top);
+    while(tmp->naxt!=NULL){
+      tmp=tmp->next;
+    }
+    tmp->next=(Node*)malloc(sizeof(Node));
+    if(type==0){
+      tmp->next->num=data;
+    }else{
+      strcpy(tmp->next->data,data);
+    }
+    tmp->next->next=NULL;
+    return 1;
+  }
+  return 0;
+}
+int Nodelength(Node* top){
+  Node* tmp=top;
+  int a=0;
+  while(tmp!=NULL){
+    tmp=tmp->next;
+    a+=1;
+  }
+  return a;
+}
+int showNode(Node* top){
+  
 }
